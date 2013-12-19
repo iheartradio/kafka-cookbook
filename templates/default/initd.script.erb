@@ -30,7 +30,7 @@ start() {
   MAIN_CLASS="<%= @main_class %>"
   JAVA_HOME=<%= node[:java][:java_home] %>
   DAEMON_PATH=<%= node[:kafka][:install_dir] %>
-  SERVER_CONFIG=$DAEMON_PATH/config/<%= (@config && @config) || "#{@daemon_name}.properties" %>
+  SERVER_CONFIG=$DAEMON_PATH/config/<%= if @config %><%= @config %><%= else %><%= "#{@daemon_name}.properties" %><%= end %>
 
   CLASSPATH=$DAEMON_PATH/kafka_<%= node[:kafka][:scala_version] %>-<%= node[:kafka][:version] %>.jar
 
