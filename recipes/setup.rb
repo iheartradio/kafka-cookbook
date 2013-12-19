@@ -12,7 +12,7 @@ user kafka_user  do
   gid   kafka_group
   home  "/home/#{kafka_user}"
   shell '/bin/false'
-  supports(manage_home: false)
+  supports(:manage_home => false)
 end
 
 [
